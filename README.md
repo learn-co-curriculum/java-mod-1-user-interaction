@@ -118,3 +118,27 @@ Please enter a number:
 12
 The user entered 12
 ```
+
+If we wanted the user to enter in a `String`, then we could modify the program
+to something like this:
+
+```java
+import java.util.Scanner;
+
+public class StudentGame {
+    public static void main(String[] args) {
+        System.out.println("Please enter a phrase:");
+        Scanner inputScanner = new Scanner(System.in);
+        String userPhrase = inputScanner.nextLine();
+        System.out.println("The user entered " + userPhrase);
+    }
+}
+```
+
+Now if we run it again with this adjustment, the output may look like this:
+
+```plaintext
+Please enter a phrase:
+It's a great big beautiful tomorrow
+The user entered It's a great big beautiful tomorrow
+```
