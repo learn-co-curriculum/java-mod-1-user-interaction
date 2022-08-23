@@ -29,32 +29,32 @@ Let's explore how we can get the user to give us their own values.
 
 ## Taking User Input in Java
 
-Java comes with utility classes that implement common functionality. For
-example, the `Math` class has methods for standard math operations, such as the
-`abs()` method that returns the absolute value of a number.
+Java comes with utility classes that implement common functionality. Even a
+class that handles taking in user input!
 
-The class that has the functionality we are interested in to get input from the
-user is the `Scanner` class. It's in a `package` called `java.util`. We will
-explain Java packages in more detail in another unit, but for now you can think
-of Java packages as folders that help us organize our Java classes, so that they
-don't all end up in the same single place.
-
-To use another class inside your own class, you have to "import" it, using the
-`import` keyword. So we need to import the `Scanner` class, which is in the
-`java.util` package as follows:
+The class that has the functionality we are interested in is the `Scanner`
+class. The **Scanner class** is in the package `java.util` and contains the
+necessary methods for us to use in order to get the accurate input from the
+user. To use the `Scanner` class, we must import it using the `import` statement
+like we saw in the Packages lesson:
 
 ```java
 import java.util.Scanner;
 ```
 
-Once we've imported the class we need, we can use it anywhere in our class by
+Notice we didn't have to import the Math class in the previous lesson. This is
+because the Math class is available in the `java.lang` package. If we remember
+from the Packages lesson, we do not need to import the `java.lang` package since
+it is in the default package.
+
+Once we've imported the `Scanner` class, we can use it anywhere in our class by
 declaring a variable of that type:
 
 ```java
 Scanner myScanner;
 ```
 
-The functionality of the Scanner class is to allow it to read input from a
+The functionality of the `Scanner` class is to allow it to read input from a
 variety of input sources. In our case, we want to read input from the terminal
 where our program will be running. This is represented by a variable in another
 Java class named `System`. This is the same class we've been using to display
@@ -72,8 +72,25 @@ Scanner inputScanner = new Scanner(System.in);
 ```
 
 Once the `inputScanner` has been initialized, we can use it to get input from
-the terminal using the `nextInt()` method, if the input we are wanting from the
-user will be a number:
+the terminal. The `Scanner` class has quite a few methods that can help us!
+Consider the following methods that may be of use to us:
+
+| Method          | Description                                     |
+|-----------------|-------------------------------------------------|
+| `nextDouble()`  | Scans the next token of the input as a `double` |
+| `nextFloat()`   | Scans the next token of the input as a `float`  |
+| `nextInt`       | Scans the next token of the input as an `int`   |
+| `nextLong()`    | Scans the next token of the input as a `long`   |
+| `nextLine()`    | Scans the next token until it sees a newline    |
+| `next()`        | Scans the next token until it sees a space      |
+
+Depending on what it is we are expecting the user to input, we can use any of
+the above methods. For example, if we are expecting an `int` data type, then we
+can use the `nextInt()` method. If we are expecting a sentence or string of
+words, we can use the `nextLine()` method to store the input in a `String`.
+
+Let's say we want to get an integer from the user. We could write something
+like this then:
 
 ```java
 int userInput = inputScanner.nextInt();
@@ -94,10 +111,34 @@ public class StudentGame {
 }
 ```
 
-Run this program, and you will get output similar to this:
+If we run this program, we will get an output similar to this:
 
 ```plaintext
 Please enter a number:
 12
 The user entered 12
+```
+
+If we wanted the user to enter in a `String`, then we could modify the program
+to something like this:
+
+```java
+import java.util.Scanner;
+
+public class StudentGame {
+    public static void main(String[] args) {
+        System.out.println("Please enter a phrase:");
+        Scanner inputScanner = new Scanner(System.in);
+        String userPhrase = inputScanner.nextLine();
+        System.out.println("The user entered " + userPhrase);
+    }
+}
+```
+
+Now if we run it again with this adjustment, the output may look like this:
+
+```plaintext
+Please enter a phrase:
+It's a great big beautiful tomorrow
+The user entered It's a great big beautiful tomorrow
 ```
