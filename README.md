@@ -29,23 +29,19 @@ Let's explore how we can get the user to give us their own values.
 
 ## Taking User Input in Java
 
-Java comes with utility classes that implement common functionality. Even a
-class that handles taking in user input!
+Java comes with utility classes that implement common functionality, like we saw
+with the `Random` class. Another utility is a class that handles taking in user
+input!
 
 The class that has the functionality we are interested in is the `Scanner`
 class. The **Scanner class** is in the package `java.util` and contains the
 necessary methods for us to use in order to get the accurate input from the
 user. To use the `Scanner` class, we must import it using the `import` statement
-like we saw in the Packages lesson:
+like we saw in the Random Class lesson:
 
 ```java
 import java.util.Scanner;
 ```
-
-Notice we didn't have to import the Math class in the previous lesson. This is
-because the Math class is available in the `java.lang` package. If we remember
-from the Packages lesson, we do not need to import the `java.lang` package since
-it is in the default package.
 
 Once we've imported the `Scanner` class, we can use it anywhere in our class by
 declaring a variable of that type:
